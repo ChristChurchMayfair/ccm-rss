@@ -1,0 +1,17 @@
+[ignore]
+
+[include]
+
+[libs]
+flow-typed
+
+[options]
+include_warnings=true
+
+[lints]
+all=warn
+untyped-import=off
+unclear-type=off
+sketchy-null=error
+
+[version]
