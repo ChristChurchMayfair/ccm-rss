@@ -4,7 +4,7 @@
     "main": "src/index.js",
     "license": "MIT",
     "scripts": {
-        "start": "babel-node src/index.js",
+        "start": "yarn build && node dist/bundle.js",
         "build": "rollup -c",
         "precommit": "lint-staged && yarn run lint && yarn run flow",
         "lint": "eslint src",
@@ -36,6 +36,7 @@
         "apollo-link-http": "^1.5.4",
         "graphql": "^0.13.2",
         "graphql-tag": "^2.9.2",
-        "node-fetch": "^2.1.2"
+        "node-fetch": "^2.1.2",
+        "xmlbuilder": "^10.0.0"
     }
 }
