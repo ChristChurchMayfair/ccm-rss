@@ -68,7 +68,15 @@ const main = async () => {
     const sermons = result.data.allSermons.map(s => parseSermon(s))
 
     const xml = createXml(sermons, new Date())
-    console.log(xml)
+    return xml
 }
 
-main()
+export const handler = async () => {
+    const xml = await main()
+    return {
+        isBase64Encoded: false,
+        statusCode: 200,
+        headers: {},
+        body: xml,
+    }
+}
