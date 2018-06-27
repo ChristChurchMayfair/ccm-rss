@@ -28,12 +28,16 @@
         "rollup-plugin-node-resolve": "^3.3.0"
     },
     "lint-staged": {
-        "*.{js,json}": ["prettier --write", "git add"]
+        "*.{js,json}": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "dependencies": {
         "apollo-cache-inmemory": "^1.2.5",
         "apollo-client": "^2.3.5",
         "apollo-link-http": "^1.5.4",
+        "date-fns": "^1.29.0",
         "graphql": "^0.13.2",
         "graphql-tag": "^2.9.2",
         "node-fetch": "^2.1.2",
