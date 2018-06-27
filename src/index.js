@@ -6,20 +6,8 @@ import { InMemoryCache } from "apollo-cache-inmemory"
 import gql from "graphql-tag"
 
 import parsePassage from "./parsePassage"
-
-type Sermon = {
-    id: string,
-    title: string,
-    passage: string,
-    seriesTitle: string,
-    seriesSubtitle: string,
-    preachedAt: string,
-    duration: number,
-    link: string,
-    imageUrl: string,
-    author: string,
-    event: string,
-}
+import { type Sermon } from "./sermon"
+import { createXml } from "./rss"
 
 const parseSermon = (sermon: Object): ?Sermon => {
     if (sermon.speakers.length === 0) {
@@ -30,11 +18,11 @@ const parseSermon = (sermon: Object): ?Sermon => {
         title: sermon.name,
         passage: parsePassage("niv-long", sermon.passage),
         seriesTitle: sermon.series.name,
-        seriesSubtitle: sermon.series.subtitle,
+        seriesSubtitle: sermon.series.subtitle || null,
         preachedAt: sermon.preachedAt,
         duration: sermon.duration,
         link: sermon.url,
-        imageUrl: sermon.series["image3x2Url"],
+        imageUrl: sermon.series["image3x2Url"] || null,
         author: sermon.speakers[0].name,
         event: sermon.event.name,
     }
@@ -73,7 +61,11 @@ const main = async () => {
             }
         `,
     })
-    console.log(result.data.allSermons.map(s => parseSermon(s)))
+
+    const sermons = result.data.allSermons.map(s => parseSermon(s))
+
+    const xml = createXml(sermons, new Date())
+    console.log(xml)
 }
 
 main()
