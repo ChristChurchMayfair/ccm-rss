@@ -3,7 +3,7 @@
 export type Sermon = {
     id: string,
     title: string,
-    passage: string,
+    passage: ?string,
     seriesTitle: string,
     seriesSubtitle: ?string,
     preachedAt: string,

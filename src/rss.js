@@ -80,7 +80,10 @@ const createItem = (parent: Object, sermon: Sermon) => {
             ? `${sermon.seriesTitle}: ${sermon.seriesSubtitle}`
             : sermon.seriesTitle
     item.ele("title", sermon.title)
-    const description = `${sermon.passage} – ${seriesSynopsis}`
+    const description =
+        sermon.passage != null
+            ? `${sermon.passage} – ${seriesSynopsis}`
+            : seriesSynopsis
     item.ele("description", description)
     item.ele("itunes:subtitle", description)
     item.ele("itunes:summary", description)
