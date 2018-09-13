@@ -6,11 +6,13 @@ cache:
   - node_modules
 script:
 - npm run build
+- mkdir bundle
+- zip -j bundle/bundle.zip ./dist/bundle.js
 deploy:
 - provider: s3
   access_key_id: AKIAIZY2ODVKNWDCCRTA
   bucket: ccmrsslambdabuilds
-  local-dir: dist
+  local-dir: bundle
   skip_cleanup: true
   on:
     repo: ChristChurchMayfair/ccm-rss
