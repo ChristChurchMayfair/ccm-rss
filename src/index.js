@@ -76,7 +76,9 @@ export const handler = async () => {
     return {
         isBase64Encoded: false,
         statusCode: 200,
-        headers: {},
+        headers: {
+            'Content-Type' : 'application/rss+xml'
+        },
         body: xml,
     }
 }
