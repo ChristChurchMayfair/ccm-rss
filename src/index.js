@@ -34,7 +34,7 @@ const parseSermon = (sermon: Object): ?Sermon => {
 const main = async () => {
     const client = new ApolloClient({
         link: createHttpLink({
-            uri: "https://api.graph.cool/simple/v1/cjhoh936q44gz0181840a6nlj",
+            uri: "https://api.graph.cool/simple/v1/cjkqvvoxy2pyy0175cdmdy1mz",
             fetch,
         }),
         cache: new InMemoryCache(),
