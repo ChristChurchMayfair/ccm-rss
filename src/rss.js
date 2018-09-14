@@ -10,12 +10,12 @@ const TITLE = "Christ Church Mayfair – Podcast"
 const DESCRIPTION = "Listen to recent sermons"
 const AUTHOR = "Christ Church Mayfair"
 const EMAIL = "info@christchurchmayfair.org"
-const MAIN_SITE = "http://www.christchurchmayfair.org/"
+const MAIN_SITE = "http://christchurchmayfair.org/"
 const IMAGE =
-    "http://www.christchurchmayfair.org/wp-content/uploads/2013/04/Sundays-Slide-620x400.jpg"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/ccm-logo-square-large.png"
 const COPYRIGHT = "(C) Christ Church Mayfair 2018"
 const DEFAULT_IMAGE =
-    "http://www.christchurchmayfair.org/wp-content/uploads/2015/02/series_default_new-620x400.png"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/series_default_new-620x400.png"
 
 const formatDate = (date: Date): string => {
     return format(date, "ddd, DD MMM YYYY HH:mm:ss ZZ")
