@@ -16,10 +16,7 @@ const parseSermon = (sermon: Object): ?Sermon => {
     return {
         id: sermon.id,
         title: sermon.name,
-        passage:
-            sermon.passage != null
-                ? parsePassage("niv-long", sermon.passage)
-                : null,
+        passage: sermon.passage,
         seriesTitle: sermon.series.name,
         seriesSubtitle: sermon.series.subtitle || null,
         preachedAt: sermon.preachedAt,
