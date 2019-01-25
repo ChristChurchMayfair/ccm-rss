@@ -39,7 +39,7 @@ const main = async () => {
     const result = await client.query({
         query: gql`
             query {
-                allSermons(orderBy: preachedAt_DESC, first: 40) {
+                allSermons(orderBy: preachedAt_DESC) {
                     id
                     name
                     series {
