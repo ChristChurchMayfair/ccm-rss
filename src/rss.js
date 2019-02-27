@@ -112,7 +112,7 @@ const createItem = (parent: Object, sermon: Sermon) => {
     })
     item.ele("ccm:author", sermon.author)
     item.ele("ccm:seriesname", sermon.seriesTitle)
-    item.ele("ccm:seriessubtitle", null)
-    item.ele("ccm:biblepassage", sermon.seriesSubtitle)
+    item.ele("ccm:seriessubtitle", sermon.seriesSubtitle)
+    item.ele("ccm:biblepassage", sermon.passage)
     item.ele("ccm:event", sermon.event)
 }
