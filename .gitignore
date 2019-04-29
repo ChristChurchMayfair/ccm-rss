@@ -1,3 +1,9 @@
-dist
+# package directories
 node_modules
-*.log
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack

@@ -1,0 +1,39 @@
+service:
+  name: ccm_rss
+
+plugins:
+  - serverless-webpack
+  
+custom:
+  webpack:
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-2
+  stage: ${opt:stage, 'dev'}
+  stackName: ccm-rss-${self:provider.stage}
+  apiName: ccm-rss-apigateway-${self:provider.stage}
+  memorySize: 512
+
+functions:
+  sermons-rss:
+    handler: sermons.get
+    name: ${self:provider.stage}-sermons-rss
+    description: Serves the main CCM Sermons RSS feed.
+    environment:
+      GRAPHQL_ENDPOINT: https://api.graph.cool/simple/v1/cjkqvvoxy2pyy0175cdmdy1mz
+    timeout: 60
+    events:
+      - http:
+          method: get
+          path: /
+  londonliving-rss:
+    handler: londonliving.get
+    name: ${self:provider.stage}-londonliving-rss
+    description: Serves the London Living RSS feed.
+    events:
+      - http:
+          method: get
+          path: londonliving
