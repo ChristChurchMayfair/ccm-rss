@@ -1,6 +1,4 @@
-// flow
-
-function getDefaults() {
+export function getDefaults() {
     return {
         b: "$b",
         c: "$c",
@@ -34,7 +32,8 @@ function getDefaults() {
     }
 }
 
-function OsisFormatter() {
+export function OsisFormatter(): {format: (osisString: any, osisContext: any) => string, tokenize: (osisString: any, osisContext: any) => { tokens: any[]; }, setOptions: (userOptions: any) => void, setBooks: (userBooks: any) => void}
+{
     // Some subset of "b.c.v-b.c.v".
     const osisFormat = /^[1-5A-Za-z]{2,}(?:\.\d{1,3}(?:\.\d{1,3})?)?(?:-[1-5A-Za-z]{2,}(?:\.\d{1,3}(?:\.\d{1,3})?)?)?$/
 
@@ -480,6 +479,7 @@ function OsisFormatter() {
             // Add the end `parts` to the existing `parts` array.
             parts: parts.concat(endToken.parts),
             laters: [],
+            bookRange: ''
         }
         // We may want to handle certain book-only ranges differently (`1John-2John` might be `1-2 John`).
         if (token.type === "b-b") {
@@ -497,6 +497,8 @@ function OsisFormatter() {
             subType: `${startToken.type}-${endToken.type}`,
             b: prevPart.b,
             laters: [],
+            c: '',
+            v: ''
         }
         // Only add chapter and verse values if they exist in the previous part. These values reflect the current context, not the future context.
         if (typeof prevPart.c !== "undefined") {
@@ -758,6 +760,3 @@ function OsisFormatter() {
         setBooks,
     }
 }
-
-/* global module */
-module.exports = OsisFormatter

@@ -1,9 +1,7 @@
-// @flow
-
 /* global require, module */
+import {OsisFormatter} from './osisFormatter'
 
-const OsisFormatter = require("./osisFormatter")
-const osisFormatter = new OsisFormatter()
+const osisFormatter = OsisFormatter()
 let currentStyle = ""
 
 const styles = Object.freeze({
@@ -1092,7 +1090,7 @@ const styles = Object.freeze({
     },
 })
 
-function formatOsis(style: string, osis: string, context?: any) {
+export function formatOsis(style: string, osis: string, context?: any) {
     if (style !== currentStyle) {
         setStyle(style)
     }
@@ -1109,5 +1107,3 @@ function setStyle(style) {
     osisFormatter.setOptions(styles[style].options)
     currentStyle = style
 }
-
-module.exports = formatOsis
