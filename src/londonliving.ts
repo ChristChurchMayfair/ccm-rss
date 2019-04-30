@@ -14,25 +14,25 @@ function generateXml(): string {
   const episodes: Episode[] = [
     {
       title: "Performance & Pressure", 
-      mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
+      mediaUrl: "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/Norman-10mins_v3.1.mp3",
       description: "Norman, a senior executive for an international power company, speaks about the performance culture of the work place.",
       releaseDate: "2019-05-02T12:00:00.000+01:00",
-      durationInSeconds: 10
+      durationInSeconds: 762
     },
-    {
-      title: "Control & Physical Safety", 
-      mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
-      description: "Connie speaks about our desire for personal control and the effects of mental health on our identity.",
-      releaseDate: "2019-05-02T12:00:00.000+01:00",
-      durationInSeconds: 10
-    },
-    {
-      title: "Self Fulfillment & Legacy", 
-      mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
-      description: "Jesse, entrepreneur and business owner, speaks on the desire for fulfillment through personal success.",
-      releaseDate: "2019-05-02T12:00:00.000+01:00",
-      durationInSeconds: 10
-    }
+    // {
+    //   title: "Control & Physical Safety", 
+    //   mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
+    //   description: "Connie speaks about our desire for personal control and the effects of mental health on our identity.",
+    //   releaseDate: "2019-05-02T12:00:00.000+01:00",
+    //   durationInSeconds: 10
+    // },
+    // {
+    //   title: "Self Fulfillment & Legacy", 
+    //   mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
+    //   description: "Jesse, entrepreneur and business owner, speaks on the desire for fulfillment through personal success.",
+    //   releaseDate: "2019-05-02T12:00:00.000+01:00",
+    //   durationInSeconds: 10
+    // }
   ]
   return createXml(episodes, new Date());
 }
