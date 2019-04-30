@@ -3,14 +3,14 @@ import { Episode } from "./londonliving";
 // can't use import here because of circular dep issue in xmlbuilder. Weird.
 const builder = require("xmlbuilder")
 
-const TITLE = "Christ Church Mayfair – London Living"
-const DESCRIPTION = "A podcast looking at how Christianity provides hope to normal people admidst the many uncertainties of London life."
+const TITLE = "Christ Church Mayfair – London:Living?"
+const DESCRIPTION = "Hear from different London voices on their experience of uncertainty and where they find a solid hope."
 const AUTHOR = "Christ Church Mayfair"
 const EMAIL = "info@christchurchmayfair.org"
 const MAIN_SITE = "http://christchurchmayfair.org"
 const IMAGE =
     "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/ccm-logo-square-large.png"
-const COPYRIGHT = "(C) Christ Church Mayfair 2019"
+const COPYRIGHT = "Christ Church Mayfair 2019"
 const DEFAULT_IMAGE =
     "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/series_default_new-620x400.png"
 
@@ -18,7 +18,7 @@ const formatDate = (date: Date): string => {
     return format(date, "ddd, DD MMM YYYY HH:mm:ss ZZ")
 }
 
-export const createXml = (episodes: [Episode], now: Date): string => {
+export const createXml = (episodes: Episode[], now: Date): string => {
     const rss = builder.create("rss")
     rss.att({
         version: "2.0",
