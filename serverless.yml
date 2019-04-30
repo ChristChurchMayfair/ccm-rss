@@ -19,7 +19,7 @@ provider:
 
 functions:
   sermons-rss:
-    handler: sermons.get
+    handler: src/sermons.get
     name: ${self:provider.stage}-sermons-rss
     description: Serves the main CCM Sermons RSS feed.
     environment:
@@ -30,7 +30,7 @@ functions:
           method: get
           path: /
   londonliving-rss:
-    handler: londonliving.get
+    handler: src/londonliving.get
     name: ${self:provider.stage}-londonliving-rss
     description: Serves the London Living RSS feed.
     events:
