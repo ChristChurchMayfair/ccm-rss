@@ -81,3 +81,14 @@ export const get: APIGatewayProxyHandler = async (_: any, _context) => {
         body: xml,
     }
 }
+
+export const head: APIGatewayProxyHandler = async (_: any, _context) => {
+    const xml = await main()
+      return {
+          isBase64Encoded: false,
+          statusCode: 200,
+          headers: {
+              'Content-Length' : xml.length
+          },
+      }
+  }

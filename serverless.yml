@@ -29,6 +29,17 @@ functions:
       - http:
           method: get
           path: /
+  sermons-rss-head:
+    handler: src/sermons.head
+    name: ${self:provider.stage}-sermons-rss-head
+    description: Serves the HEAD request for the main CCM Sermons RSS feed.
+    environment:
+      GRAPHQL_ENDPOINT: https://api.graph.cool/simple/v1/cjkqvvoxy2pyy0175cdmdy1mz
+    timeout: 60
+    events:
+      - http:
+          method: head
+          path: /
   londonliving-rss:
     handler: src/londonliving.get
     name: ${self:provider.stage}-londonliving-rss
@@ -36,4 +47,12 @@ functions:
     events:
       - http:
           method: get
+          path: londonliving
+  londonliving-rss-head:
+    handler: src/londonliving.head
+    name: ${self:provider.stage}-londonliving-rss-head
+    description: Serves the HEAD request London Living RSS feed.
+    events:
+      - http:
+          method: head
           path: londonliving
