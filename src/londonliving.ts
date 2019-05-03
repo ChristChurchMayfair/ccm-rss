@@ -15,7 +15,7 @@ function generateXml(): string {
     {
       title: "Performance & Pressure", 
       mediaUrl: "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/Norman-10mins_v3.1.mp3",
-      description: "Norman, a senior executive for an international power company, speaks about the performance culture of the work place.",
+      description: "Norman, a senior executive for an international energy company, speaks about the performance culture of the work place.",
       releaseDate: "2019-05-02T12:00:00.000+01:00",
       durationInSeconds: 762
     },

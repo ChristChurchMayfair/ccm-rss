@@ -47,7 +47,7 @@ export const createXml = (episodes: Episode[], now: Date): string => {
     channel
         .ele("itunes:category", { text: "Religion & Spirituality" })
         .ele("itunes:category", { text: "Christianity" })
-    channel.ele("itunes:keywords")
+    channel.ele("itunes:keywords", "Christ Church Mayfair, CCM, London, Living, London:Living")
     channel.ele("media:keywords")
     channel.ele("itunes:explicit", "no")
     channel.ele("media:rating", { scheme: "urn:simple" }, "nonadult")
@@ -81,7 +81,7 @@ const createItem = (parent: any, episode: Episode) => {
     item.ele("itunes:summary", description)
     item.ele(
         "itunes:keywords",
-        `Sermon, ${seriesSynopsis}`,
+        `${seriesSynopsis}`,
     )
     item.ele("pubDate", formatDate(parse(episode.releaseDate)))
     item.ele("itunes:duration", formatDuration(episode.durationInSeconds))
