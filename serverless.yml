@@ -17,6 +17,33 @@ provider:
   apiName: ccm-rss-apigateway-${self:provider.stage}
   memorySize: 512
 
+resources:
+  Resources:
+    CloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Comment: CCM Sermons RSS Distribution
+          DefaultCacheBehavior:
+            TargetOriginId: CCMSermonsRSSOrigin
+            ViewerProtocolPolicy: 'redirect-to-https'
+            DefaultTTL: 30
+            ForwardedValues:
+              QueryString: false
+          Enabled: true
+          Origins:
+            - Id: CCMSermonsRSSOrigin
+              DomainName:
+                Fn::Join:
+                  - "."
+                  - - Ref: ApiGatewayRestApi
+                    - execute-api
+                    - ${self:provider.region}
+                    - amazonaws.com
+              OriginPath: /prod
+              CustomOriginConfig:
+                OriginProtocolPolicy: https-only
+
 functions:
   sermons-rss:
     handler: src/sermons.get
