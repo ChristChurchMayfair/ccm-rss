@@ -1,18 +1,19 @@
 import { format, parse } from "date-fns"
-import { Episode } from "./londonliving";
+import { Episode } from "./londonliving"
 // can't use import here because of circular dep issue in xmlbuilder. Weird.
 const builder = require("xmlbuilder")
 
 const TITLE = "Christ Church Mayfair – London:Living?"
-const DESCRIPTION = "Hear from different London voices on their experience of uncertainty and where they find a solid hope."
+const DESCRIPTION =
+    "Hear from different London voices on their experience of uncertainty and where they find a solid hope."
 const AUTHOR = "Christ Church Mayfair"
 const EMAIL = "info@christchurchmayfair.org"
 const MAIN_SITE = "http://christchurchmayfair.org"
 const IMAGE =
-    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/ccm-logo-square-large.png"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork.jpg"
 const COPYRIGHT = "Christ Church Mayfair 2019"
 const DEFAULT_IMAGE =
-    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/series-images/series_default_new-620x400.png"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork.jpg"
 
 const formatDate = (date: Date): string => {
     return format(date, "ddd, DD MMM YYYY HH:mm:ss ZZ")
@@ -47,7 +48,10 @@ export const createXml = (episodes: Episode[], now: Date): string => {
     channel
         .ele("itunes:category", { text: "Religion & Spirituality" })
         .ele("itunes:category", { text: "Christianity" })
-    channel.ele("itunes:keywords", "Christ Church Mayfair, CCM, London, Living, London:Living")
+    channel.ele(
+        "itunes:keywords",
+        "Christ Church Mayfair, CCM, London, Living, London:Living",
+    )
     channel.ele("media:keywords")
     channel.ele("itunes:explicit", "no")
     channel.ele("media:rating", { scheme: "urn:simple" }, "nonadult")
@@ -75,14 +79,11 @@ const createItem = (parent: any, episode: Episode) => {
     const seriesSynopsis = "Series Synopsis"
     item.ele("title", episode.title)
     const description = episode.description
-    
+
     item.ele("description", description)
     item.ele("itunes:subtitle", description)
     item.ele("itunes:summary", description)
-    item.ele(
-        "itunes:keywords",
-        `${seriesSynopsis}`,
-    )
+    item.ele("itunes:keywords", `${seriesSynopsis}`)
     item.ele("pubDate", formatDate(parse(episode.releaseDate)))
     item.ele("itunes:duration", formatDuration(episode.durationInSeconds))
     item.ele("enclosure", {
