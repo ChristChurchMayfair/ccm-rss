@@ -10,10 +10,10 @@ const AUTHOR = "Christ Church Mayfair"
 const EMAIL = "info@christchurchmayfair.org"
 const MAIN_SITE = "http://christchurchmayfair.org"
 const IMAGE =
-    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork.jpg"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork_small.jpg"
 const COPYRIGHT = "Christ Church Mayfair 2019"
 const DEFAULT_IMAGE =
-    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork.jpg"
+    "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/LLpodcastartwork_small.jpg"
 
 const formatDate = (date: Date): string => {
     return format(date, "ddd, DD MMM YYYY HH:mm:ss ZZ")
