@@ -28,13 +28,13 @@ function generateXml(): string {
           releaseDate: "2019-05-09T00:00:00.001+01:00",
           durationInSeconds: 566
         },
-        // {
-        //   title: "Self Fulfillment & Legacy",
-        //   mediaUrl: "https://media.christchurchmayfair.org/asdf.mp3",
-        //   description: "Jesse, entrepreneur and business owner, speaks on the desire for fulfillment through personal success.",
-        //   releaseDate: "2019-05-02T12:00:00.000+01:00",
-        //   durationInSeconds: 10
-        // }
+        {
+          title: "Self Fulfillment & Legacy",
+          mediaUrl: "https://s3-eu-west-1.amazonaws.com/media.christchurchmayfair.org/londonliving/Jesse-10mins_v2.mp3",
+          description: "Jesse, entrepreneur and business owner, speaks on the desire for fulfillment through personal success.",
+          releaseDate: "2019-05-16T00:00:00.001+01:00",
+          durationInSeconds: 526
+        }
     ]
     return createXml(episodes, new Date())
 }
